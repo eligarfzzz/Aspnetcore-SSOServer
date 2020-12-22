@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isLogin() {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://localhost:44344/api/login/Islogin");
+        xhr.withCredentials = true;
+        xhr.onreadystatechange=() => {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+          }
+        };
+        xhr.send();
+      }
+      function login(){
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://localhost:44344/api/login/login?Username=admin&Pwdmd5=md5");
+        xhr.withCredentials = true;
+        xhr.onreadystatechange=() => {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+          }
+        };
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>

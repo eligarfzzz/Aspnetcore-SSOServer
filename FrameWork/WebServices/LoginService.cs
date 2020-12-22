@@ -29,7 +29,7 @@ namespace WebServices
 
         public bool IsTokenAvalible(string v)
         {
-            throw new NotImplementedException();
+            return v == "token";
         }
     }
 }

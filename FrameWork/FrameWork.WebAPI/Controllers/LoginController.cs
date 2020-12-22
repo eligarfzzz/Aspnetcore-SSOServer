@@ -23,8 +23,8 @@ namespace FrameWork.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("index")]
-        public LoginStatusResult Index([FromQuery] LoginParams param)
+        [Route("Login")]
+        public LoginStatusResult Login([FromQuery] LoginParams param)
         {
             var ls = new LoginService();
             if (ls.Login(param.Username, param.Pwdmd5, out string token))
@@ -43,7 +43,7 @@ namespace FrameWork.WebAPI.Controllers
         [Route("IsLogin")]
         public IsLoginResult IsLogin()
         {
-            var token = new CookiesHelper(HttpContext).GetCookieValue("AccountUser");
+            var token = new CookiesHelper(HttpContext).GetCookieValue(LoginService.AccountUserTokenCookieKey);
             return new IsLoginResult()
             {
                 IsLogin = new LoginService().IsTokenAvalible(token),

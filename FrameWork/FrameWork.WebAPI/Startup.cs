@@ -42,10 +42,10 @@ namespace FrameWork.WebAPI
             {
                context.Response.OnStarting(() =>
                {
-                   context.Response.Headers.Add("Access-Control-Allow-Headers", "Authorization,X-API-KEY, Origin,  Content-Type, Accept, Access-Control-Request-Method");
+                   context.Response.Headers.Add("Access-Control-Allow-Headers", "Authorization,X-API-KEY, Origin,  Content-Type, Accept, Access-Control-Request-Method, Access-Control-Allow-Credentials, Access-Control-Allow-Origin");
 
                    context.Response.Headers.Add("Access-Control-Allow-Origin", context.Request.Headers["Origin"]);
-
+                   context.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
                    context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PATCH, PUT, DELET");
                    context.Response.Headers.Add("Allow", "GET, POST, PATCH, OPTIONS, PUT, DELETE");
 
